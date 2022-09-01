@@ -1,0 +1,20 @@
+// UV / Texture Scroll - Agustin R. Free to use and learn from =) 
+// create a scrolling UV offset
+attribute highp vec4 position;
+attribute mediump vec2 texcoord0;
+
+uniform mediump mat4 mtx_worldview;
+uniform mediump mat4 mtx_proj;
+uniform mediump vec4 animation_time; // vertex constant set up in material as type user.
+
+varying mediump vec3 var_normal;
+varying mediump vec2 var_texcoord0; // setup var texcoord 0
+varying mediump vec2 var_texcoord1; // setup var texcoord 1
+
+void main()
+{
+    vec4 p = mtx_worldview * vec4(position.xyz, 1.0);
+    var_texcoord0 = texcoord0;
+    var_texcoord1 = vec2(texcoord0.x - animation_time.x, texcoord0.y); // Calculate var texcoord 1 uv offset on U(x) axis to fragment program 
+    gl_Position = mtx_proj * p;
+}

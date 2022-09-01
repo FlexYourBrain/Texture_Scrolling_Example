@@ -1,0 +1,8 @@
+mesh: "/assets/models/plane_grid.dae"
+material: "/assets/material/water_scroll.material"
+textures: "/assets/textures/water_bg.png"
+textures: "/assets/textures/water_wave.png"
+skeleton: ""
+animations: ""
+default_animation: ""
+name: "unnamed"

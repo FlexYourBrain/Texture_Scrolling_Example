@@ -1,0 +1,7 @@
+local animate = 1.0
+-- local float will be used to set animation_time constant in scroll material , only x constant value is used in the shader 
+-- so there is no need to create a vector 4
+
+function init(self)
+	go.animate("/scroll#plane", "animation_time.x", go.PLAYBACK_LOOP_FORWARD, animate, go.EASING_LINEAR, 4.0)
+end

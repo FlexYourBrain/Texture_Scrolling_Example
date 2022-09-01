@@ -1,0 +1,5 @@
+function init(self)
+	msg.post("@render:", "clear_color", { color = vmath.vector4(0.07, 0.07, 0.072, 1) }) -- Set Clear Color RGBA(Background color)
+	msg.post("@render:", "use_camera_projection") -- set camera projection in render script
+	msg.post("camera", "acquire_camera_focus") -- Set camera to active slot on renderer
+end
