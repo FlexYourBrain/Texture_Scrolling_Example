@@ -1,8 +1,14 @@
-mesh: "/assets/models/plane_grid.dae"
-material: "/assets/material/water_scroll.material"
-textures: "/assets/textures/water_bg.png"
-textures: "/assets/textures/water_wave.png"
-skeleton: ""
-animations: ""
-default_animation: ""
+mesh: "/assets/models/quad_subdiv.glb"
 name: "unnamed"
+materials {
+  name: "default"
+  material: "/assets/material/water_scroll.material"
+  textures {
+    sampler: "tex0"
+    texture: "/assets/textures/water_bg.png"
+  }
+  textures {
+    sampler: "tex1"
+    texture: "/assets/textures/water_wave.png"
+  }
+}

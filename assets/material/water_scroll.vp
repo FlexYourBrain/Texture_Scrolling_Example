@@ -1,18 +1,24 @@
+#version 140
+
+uniform vertex_inputs
+{
+    uniform mat4 mtx_worldview;
+    uniform mat4 mtx_proj;
+    uniform vec4 animation_time;// vertex attribute set up in material as type float.
+};
+
 // UV / Texture Scroll
-attribute highp vec4 position;
-attribute mediump vec2 texcoord0;
+in vec4 position;
+in vec2 texcoord0;
 
-uniform mediump mat4 mtx_worldview;
-uniform mediump mat4 mtx_proj;
-uniform mediump vec4 animation_time; // vertex constant set up in material as type user.
-
-varying mediump vec2 var_texcoord0; // setup var texcoord 0
-varying mediump vec2 var_texcoord1; // setup var texcoord 1
+out vec2 var_texcoord0;// setup var texcoord 0
+out vec2 var_texcoord1;// setup var texcoord 1
 
 void main()
 {
     vec4 p = mtx_worldview * vec4(position.xyz, 1.0);
+    gl_Position = mtx_proj * p;
+    
     var_texcoord0 = texcoord0;
     var_texcoord1 = vec2(texcoord0.x - animation_time.x, texcoord0.y); // Calculate var texcoord 1 uv offset on U(x) axis to fragment program 
-    gl_Position = mtx_proj * p;
 }
